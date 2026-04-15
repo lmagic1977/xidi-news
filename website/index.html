@@ -251,6 +251,15 @@
       color: rgba(255,255,255,0.8);
     }
 
+    .hero-main-overlay a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hero-main:hover .hero-main-overlay h1 {
+      text-decoration: underline;
+    }
+
     .hero-side {
       display: flex;
       flex-direction: column;
@@ -349,12 +358,21 @@
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      cursor: pointer;
       transition: box-shadow 0.2s;
     }
 
     .news-card:hover {
       box-shadow: var(--shadow-card);
+    }
+
+    .news-card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .news-card:hover h3 {
+      color: var(--color-accent);
     }
 
     .news-card-img {
@@ -473,6 +491,10 @@
       font-weight: 600;
       line-height: 1.4;
       margin-bottom: 6px;
+    }
+
+    .trending-item:hover h4 {
+      color: var(--color-accent);
     }
 
     .newsletter-box {
@@ -637,7 +659,7 @@
 <body>
   <!-- 更新信息 -->
   <div class="update-info">
-    🔄 内容更新于 2026年04月14日 18:34 · 倍可亲: 8条 · BBC中文: 5条 · 美国之音: 4条
+    🔄 内容更新于 2026年04月14日 20:14 · 倍可亲: 8条 · BBC中文: 5条 · 美国之音: 4条
   </div>
 
   <!-- Header -->
@@ -688,29 +710,29 @@
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
-        <div class="hero-main">
+        <a href="https://www.backchina.comnews/2026/04/13/1024140.html?from=mjyw" target="_blank" rel="noopener noreferrer" class="hero-main" style="display:block;color:inherit;text-decoration:none;">
           <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&q=80" alt="Featured">
           <div class="hero-main-overlay">
             <span class="category">热门</span>
             <h1>传裸照涉性侵 卷入中国艳谍丑闻 美议员宣布退选</h1>
-            <p class="meta">来源: 倍可亲 · 点击阅读</p>
+            <p class="meta">来源: 倍可亲 · 点击阅读原文</p>
           </div>
-        </div>
+        </a>
         <div class="hero-side">
-          <div class="hero-side-item">
+          <a href="https://www.backchina.comnews/2026/03/21/1020378.html?from=zgzt" target="_blank" rel="noopener noreferrer" class="hero-side-item" style="display:block;color:inherit;text-decoration:none;">
             <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80" alt="Tech">
             <div class="hero-side-overlay">
               <span class="category">科技</span>
-              <h3>离谱！连娶三徒，逼吃禁药金牌教父的荒唐人生</h3>
+              <h3>离谱！连娶三徒，逼吃禁药金牌教父的荒唐人生...</h3>
             </div>
-          </div>
-          <div class="hero-side-item">
+          </a>
+          <a href="https://www.backchina.comnews/2026/04/12/1023932.html?from=jstd" target="_blank" rel="noopener noreferrer" class="hero-side-item" style="display:block;color:inherit;text-decoration:none;">
             <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Business">
             <div class="hero-side-overlay">
               <span class="category">财经</span>
-              <h3>美伊谈判破局!美前谈判代表警告:伊握"更多筹码"</h3>
+              <h3>美伊谈判破局!美前谈判代表警告:伊握"更多筹码"...</h3>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>
@@ -734,224 +756,258 @@
         <div class="news-grid">
           
         <article class="news-card">
-          <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
-          <div class="news-card-body">
-            <span class="category world">国际</span>
-            <h3>传裸照涉性侵 卷入中国艳谍丑闻 美议员宣布退选</h3>
-            <p class="excerpt"></p>
-            <div class="meta">
-              <span>📅 刚刚</span>
-              <span>👁 倍可亲</span>
+          <a href="https://www.backchina.comnews/2026/04/13/1024140.html?from=mjyw" target="_blank" rel="noopener noreferrer" class="news-card-link">
+            <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
+            <div class="news-card-body">
+              <span class="category world">国际</span>
+              <h3>传裸照涉性侵 卷入中国艳谍丑闻 美议员宣布退选</h3>
+              <p class="excerpt"></p>
+              <div class="meta">
+                <span>📅 刚刚</span>
+                <span>👁 倍可亲</span>
+              </div>
             </div>
-          </div>
+          </a>
         </article>
         
         <article class="news-card">
-          <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
-          <div class="news-card-body">
-            <span class="category world">国际</span>
-            <h3>离谱！连娶三徒，逼吃禁药金牌教父的荒唐人生</h3>
-            <p class="excerpt"></p>
-            <div class="meta">
-              <span>📅 刚刚</span>
-              <span>👁 倍可亲</span>
+          <a href="https://www.backchina.comnews/2026/03/21/1020378.html?from=zgzt" target="_blank" rel="noopener noreferrer" class="news-card-link">
+            <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
+            <div class="news-card-body">
+              <span class="category world">国际</span>
+              <h3>离谱！连娶三徒，逼吃禁药金牌教父的荒唐人生</h3>
+              <p class="excerpt"></p>
+              <div class="meta">
+                <span>📅 刚刚</span>
+                <span>👁 倍可亲</span>
+              </div>
             </div>
-          </div>
+          </a>
         </article>
         
         <article class="news-card">
-          <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
-          <div class="news-card-body">
-            <span class="category world">国际</span>
-            <h3>美伊谈判破局!美前谈判代表警告:伊握"更多筹码"</h3>
-            <p class="excerpt"></p>
-            <div class="meta">
-              <span>📅 刚刚</span>
-              <span>👁 倍可亲</span>
+          <a href="https://www.backchina.comnews/2026/04/12/1023932.html?from=jstd" target="_blank" rel="noopener noreferrer" class="news-card-link">
+            <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
+            <div class="news-card-body">
+              <span class="category world">国际</span>
+              <h3>美伊谈判破局!美前谈判代表警告:伊握"更多筹码"</h3>
+              <p class="excerpt"></p>
+              <div class="meta">
+                <span>📅 刚刚</span>
+                <span>👁 倍可亲</span>
+              </div>
             </div>
-          </div>
+          </a>
         </article>
         
         <article class="news-card">
-          <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
-          <div class="news-card-body">
-            <span class="category world">国际</span>
-            <h3>内地蓝莓价格暴跌 福建女每日食半斤，仅2日</h3>
-            <p class="excerpt"></p>
-            <div class="meta">
-              <span>📅 刚刚</span>
-              <span>👁 倍可亲</span>
+          <a href="https://www.backchina.comnews/2026/04/14/1024196.html?from=dlzx" target="_blank" rel="noopener noreferrer" class="news-card-link">
+            <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
+            <div class="news-card-body">
+              <span class="category world">国际</span>
+              <h3>内地蓝莓价格暴跌 福建女每日食半斤，仅2日</h3>
+              <p class="excerpt"></p>
+              <div class="meta">
+                <span>📅 刚刚</span>
+                <span>👁 倍可亲</span>
+              </div>
             </div>
-          </div>
+          </a>
         </article>
         
         <article class="news-card">
-          <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
-          <div class="news-card-body">
-            <span class="category world">国际</span>
-            <h3>火气太大！71岁华人国际航班上扇空姐耳光 结果…</h3>
-            <p class="excerpt"></p>
-            <div class="meta">
-              <span>📅 刚刚</span>
-              <span>👁 倍可亲</span>
+          <a href="https://www.backchina.comnews/2026/04/13/1024007.html?from=hrsq" target="_blank" rel="noopener noreferrer" class="news-card-link">
+            <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
+            <div class="news-card-body">
+              <span class="category world">国际</span>
+              <h3>火气太大！71岁华人国际航班上扇空姐耳光 结果…</h3>
+              <p class="excerpt"></p>
+              <div class="meta">
+                <span>📅 刚刚</span>
+                <span>👁 倍可亲</span>
+              </div>
             </div>
-          </div>
+          </a>
         </article>
         
         <article class="news-card">
-          <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
-          <div class="news-card-body">
-            <span class="category world">国际</span>
-            <h3>1300多年前海宁安国寺 现在却成了烂尾楼</h3>
-            <p class="excerpt"></p>
-            <div class="meta">
-              <span>📅 刚刚</span>
-              <span>👁 倍可亲</span>
+          <a href="https://www.backchina.comblog/135369/article-390821.html?from=hgjl" target="_blank" rel="noopener noreferrer" class="news-card-link">
+            <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
+            <div class="news-card-body">
+              <span class="category world">国际</span>
+              <h3>1300多年前海宁安国寺 现在却成了烂尾楼</h3>
+              <p class="excerpt"></p>
+              <div class="meta">
+                <span>📅 刚刚</span>
+                <span>👁 倍可亲</span>
+              </div>
             </div>
-          </div>
+          </a>
         </article>
         
         <article class="news-card">
-          <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
-          <div class="news-card-body">
-            <span class="category world">国际</span>
-            <h3>裸照当结婚现场迎宾照，三宝万千惠的畸形婚姻...</h3>
-            <p class="excerpt"></p>
-            <div class="meta">
-              <span>📅 刚刚</span>
-              <span>👁 倍可亲</span>
+          <a href="https://www.backchina.comnews/2026/04/12/1023977.html?from=wyty" target="_blank" rel="noopener noreferrer" class="news-card-link">
+            <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
+            <div class="news-card-body">
+              <span class="category world">国际</span>
+              <h3>裸照当结婚现场迎宾照，三宝万千惠的畸形婚姻...</h3>
+              <p class="excerpt"></p>
+              <div class="meta">
+                <span>📅 刚刚</span>
+                <span>👁 倍可亲</span>
+              </div>
             </div>
-          </div>
+          </a>
         </article>
         
         <article class="news-card">
-          <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
-          <div class="news-card-body">
-            <span class="category world">国际</span>
-            <h3>红帽研发撤离中国，一个时代的落幕</h3>
-            <p class="excerpt"></p>
-            <div class="meta">
-              <span>📅 刚刚</span>
-              <span>👁 倍可亲</span>
+          <a href="https://www.backchina.comnews/2026/04/13/1024030.html?from=kjqy" target="_blank" rel="noopener noreferrer" class="news-card-link">
+            <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
+            <div class="news-card-body">
+              <span class="category world">国际</span>
+              <h3>红帽研发撤离中国，一个时代的落幕</h3>
+              <p class="excerpt"></p>
+              <div class="meta">
+                <span>📅 刚刚</span>
+                <span>👁 倍可亲</span>
+              </div>
             </div>
-          </div>
+          </a>
         </article>
         
         <article class="news-card">
-          <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
-          <div class="news-card-body">
-            <span class="category world">BBC</span>
-            <h3>到底有多少船只正在冒险穿越霍尔木兹海峡？</h3>
-            <p class="excerpt"></p>
-            <div class="meta">
-              <span>📅 刚刚</span>
-              <span>👁 BBC中文</span>
+          <a href="https://www.bbc.com/zhongwen/articles/ckgww2w3009o/simp" target="_blank" rel="noopener noreferrer" class="news-card-link">
+            <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
+            <div class="news-card-body">
+              <span class="category world">BBC</span>
+              <h3>到底有多少船只正在冒险穿越霍尔木兹海峡？</h3>
+              <p class="excerpt"></p>
+              <div class="meta">
+                <span>📅 刚刚</span>
+                <span>👁 BBC中文</span>
+              </div>
             </div>
-          </div>
+          </a>
         </article>
         
         <article class="news-card">
-          <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
-          <div class="news-card-body">
-            <span class="category world">BBC</span>
-            <h3>香港首个五年规划：北京下达KPI还是“责无旁贷”的社会主义融合？</h3>
-            <p class="excerpt"></p>
-            <div class="meta">
-              <span>📅 刚刚</span>
-              <span>👁 BBC中文</span>
+          <a href="https://www.bbc.com/zhongwen/articles/c6245evk06yo/simp" target="_blank" rel="noopener noreferrer" class="news-card-link">
+            <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
+            <div class="news-card-body">
+              <span class="category world">BBC</span>
+              <h3>香港首个五年规划：北京下达KPI还是“责无旁贷”的社会主义融合？</h3>
+              <p class="excerpt"></p>
+              <div class="meta">
+                <span>📅 刚刚</span>
+                <span>👁 BBC中文</span>
+              </div>
             </div>
-          </div>
+          </a>
         </article>
         
         <article class="news-card">
-          <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
-          <div class="news-card-body">
-            <span class="category world">BBC</span>
-            <h3>菲律宾指控中国渔民在南海倾倒氰化物</h3>
-            <p class="excerpt"></p>
-            <div class="meta">
-              <span>📅 刚刚</span>
-              <span>👁 BBC中文</span>
+          <a href="https://www.bbc.com/zhongwen/articles/cz900w1yqpzo/simp" target="_blank" rel="noopener noreferrer" class="news-card-link">
+            <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
+            <div class="news-card-body">
+              <span class="category world">BBC</span>
+              <h3>菲律宾指控中国渔民在南海倾倒氰化物</h3>
+              <p class="excerpt"></p>
+              <div class="meta">
+                <span>📅 刚刚</span>
+                <span>👁 BBC中文</span>
+              </div>
             </div>
-          </div>
+          </a>
         </article>
         
         <article class="news-card">
-          <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
-          <div class="news-card-body">
-            <span class="category world">BBC</span>
-            <h3>中国爆发式增长的团播潮背后：情感诈骗、主播收入和隐秘活动</h3>
-            <p class="excerpt"></p>
-            <div class="meta">
-              <span>📅 刚刚</span>
-              <span>👁 BBC中文</span>
+          <a href="https://www.bbc.com/zhongwen/articles/cpd5j2nepp8o/simp" target="_blank" rel="noopener noreferrer" class="news-card-link">
+            <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
+            <div class="news-card-body">
+              <span class="category world">BBC</span>
+              <h3>中国爆发式增长的团播潮背后：情感诈骗、主播收入和隐秘活动</h3>
+              <p class="excerpt"></p>
+              <div class="meta">
+                <span>📅 刚刚</span>
+                <span>👁 BBC中文</span>
+              </div>
             </div>
-          </div>
+          </a>
         </article>
         
         <article class="news-card">
-          <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
-          <div class="news-card-body">
-            <span class="category world">BBC</span>
-            <h3>量子运算：欧洲有望获胜的一场科技竞赛？</h3>
-            <p class="excerpt"></p>
-            <div class="meta">
-              <span>📅 刚刚</span>
-              <span>👁 BBC中文</span>
+          <a href="https://www.bbc.com/zhongwen/articles/cx299lz2gdxo/simp" target="_blank" rel="noopener noreferrer" class="news-card-link">
+            <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
+            <div class="news-card-body">
+              <span class="category world">BBC</span>
+              <h3>量子运算：欧洲有望获胜的一场科技竞赛？</h3>
+              <p class="excerpt"></p>
+              <div class="meta">
+                <span>📅 刚刚</span>
+                <span>👁 BBC中文</span>
+              </div>
             </div>
-          </div>
+          </a>
         </article>
         
         <article class="news-card">
-          <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
-          <div class="news-card-body">
-            <span class="category world">美国之音</span>
-            <h3>美国之音中文广播</h3>
-            <p class="excerpt"></p>
-            <div class="meta">
-              <span>📅 刚刚</span>
-              <span>👁 美国之音</span>
+          <a href="https://www.voachinese.com/live/audio/46" target="_blank" rel="noopener noreferrer" class="news-card-link">
+            <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
+            <div class="news-card-body">
+              <span class="category world">美国之音</span>
+              <h3>美国之音中文广播</h3>
+              <p class="excerpt"></p>
+              <div class="meta">
+                <span>📅 刚刚</span>
+                <span>👁 美国之音</span>
+              </div>
             </div>
-          </div>
+          </a>
         </article>
         
         <article class="news-card">
-          <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
-          <div class="news-card-body">
-            <span class="category world">美国之音</span>
-            <h3>最新视频报道</h3>
-            <p class="excerpt"></p>
-            <div class="meta">
-              <span>📅 刚刚</span>
-              <span>👁 美国之音</span>
+          <a href="https://www.voachinese.com/z/1927" target="_blank" rel="noopener noreferrer" class="news-card-link">
+            <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
+            <div class="news-card-body">
+              <span class="category world">美国之音</span>
+              <h3>最新视频报道</h3>
+              <p class="excerpt"></p>
+              <div class="meta">
+                <span>📅 刚刚</span>
+                <span>👁 美国之音</span>
+              </div>
             </div>
-          </div>
+          </a>
         </article>
         
         <article class="news-card">
-          <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
-          <div class="news-card-body">
-            <span class="category world">美国之音</span>
-            <h3>美国之音专访</h3>
-            <p class="excerpt"></p>
-            <div class="meta">
-              <span>📅 刚刚</span>
-              <span>👁 美国之音</span>
+          <a href="https://www.voachinese.com/p/6138.html" target="_blank" rel="noopener noreferrer" class="news-card-link">
+            <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
+            <div class="news-card-body">
+              <span class="category world">美国之音</span>
+              <h3>美国之音专访</h3>
+              <p class="excerpt"></p>
+              <div class="meta">
+                <span>📅 刚刚</span>
+                <span>👁 美国之音</span>
+              </div>
             </div>
-          </div>
+          </a>
         </article>
         
         <article class="news-card">
-          <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
-          <div class="news-card-body">
-            <span class="category world">美国之音</span>
-            <h3>白宫要闻 ｜ 国会报道</h3>
-            <p class="excerpt"></p>
-            <div class="meta">
-              <span>📅 刚刚</span>
-              <span>👁 美国之音</span>
+          <a href="https://www.voachinese.com/z/8213" target="_blank" rel="noopener noreferrer" class="news-card-link">
+            <img class="news-card-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="world">
+            <div class="news-card-body">
+              <span class="category world">美国之音</span>
+              <h3>白宫要闻 ｜ 国会报道</h3>
+              <p class="excerpt"></p>
+              <div class="meta">
+                <span>📅 刚刚</span>
+                <span>👁 美国之音</span>
+              </div>
             </div>
-          </div>
+          </a>
         </article>
         
         </div>
@@ -973,7 +1029,9 @@
             <li class="trending-item">
               <span class="trending-num">1</span>
               <div>
-                <h4>传裸照涉性侵 卷入中国艳谍丑闻 美议员宣布退选...</h4>
+                <a href="https://www.backchina.comnews/2026/04/13/1024140.html?from=mjyw" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
+                  <h4>传裸照涉性侵 卷入中国艳谍丑闻 美议员宣布退选...</h4>
+                </a>
                 <p class="meta">倍可亲 · 刚刚</p>
               </div>
             </li>
@@ -981,7 +1039,9 @@
             <li class="trending-item">
               <span class="trending-num">2</span>
               <div>
-                <h4>离谱！连娶三徒，逼吃禁药金牌教父的荒唐人生...</h4>
+                <a href="https://www.backchina.comnews/2026/03/21/1020378.html?from=zgzt" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
+                  <h4>离谱！连娶三徒，逼吃禁药金牌教父的荒唐人生...</h4>
+                </a>
                 <p class="meta">倍可亲 · 刚刚</p>
               </div>
             </li>
@@ -989,7 +1049,9 @@
             <li class="trending-item">
               <span class="trending-num">3</span>
               <div>
-                <h4>美伊谈判破局!美前谈判代表警告:伊握"更多筹码"...</h4>
+                <a href="https://www.backchina.comnews/2026/04/12/1023932.html?from=jstd" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
+                  <h4>美伊谈判破局!美前谈判代表警告:伊握"更多筹码"...</h4>
+                </a>
                 <p class="meta">倍可亲 · 刚刚</p>
               </div>
             </li>
@@ -997,7 +1059,9 @@
             <li class="trending-item">
               <span class="trending-num">4</span>
               <div>
-                <h4>内地蓝莓价格暴跌 福建女每日食半斤，仅2日...</h4>
+                <a href="https://www.backchina.comnews/2026/04/14/1024196.html?from=dlzx" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
+                  <h4>内地蓝莓价格暴跌 福建女每日食半斤，仅2日...</h4>
+                </a>
                 <p class="meta">倍可亲 · 刚刚</p>
               </div>
             </li>
@@ -1005,7 +1069,9 @@
             <li class="trending-item">
               <span class="trending-num">5</span>
               <div>
-                <h4>火气太大！71岁华人国际航班上扇空姐耳光 结果…...</h4>
+                <a href="https://www.backchina.comnews/2026/04/13/1024007.html?from=hrsq" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
+                  <h4>火气太大！71岁华人国际航班上扇空姐耳光 结果…...</h4>
+                </a>
                 <p class="meta">倍可亲 · 刚刚</p>
               </div>
             </li>

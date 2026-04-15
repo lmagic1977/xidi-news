@@ -16,19 +16,24 @@ def generate_news_cards(news_list: List[Dict]) -> str:
     for news in news_list:
         category = get_category_for_source(news.get('source', ''))
         time_ago = get_time_ago(news.get('rewritten_at', ''))
+        news_url = news.get('url', '#') or '#'
+        title = news.get('title', '')
+        summary = news.get('summary', '点击阅读更多最新新闻资讯')
 
         cards_html += f'''
         <article class="news-card">
-          <img class="news-card-img" src="{get_placeholder_image(category)}" alt="{category}">
-          <div class="news-card-body">
-            <span class="category {category}">{get_source_display_name(news.get('source', ''))}</span>
-            <h3>{news.get('title', '')}</h3>
-            <p class="excerpt">{news.get('summary', '点击阅读更多最新新闻资讯')}</p>
-            <div class="meta">
-              <span>📅 {time_ago}</span>
-              <span>👁 {news.get('source', '西地新闻')}</span>
+          <a href="{news_url}" target="_blank" rel="noopener noreferrer" class="news-card-link">
+            <img class="news-card-img" src="{get_placeholder_image(category)}" alt="{category}">
+            <div class="news-card-body">
+              <span class="category {category}">{get_source_display_name(news.get('source', ''))}</span>
+              <h3>{title}</h3>
+              <p class="excerpt">{summary}</p>
+              <div class="meta">
+                <span>📅 {time_ago}</span>
+                <span>👁 {news.get('source', '西地新闻')}</span>
+              </div>
             </div>
-          </div>
+          </a>
         </article>
         '''
     return cards_html
@@ -37,12 +42,18 @@ def generate_trending_list(news_list: List[Dict]) -> str:
     """生成热门文章列表HTML"""
     trending_html = ''
     for i, news in enumerate(news_list[:5]):
+        news_url = news.get('url', '#') or '#'
+        title = news.get('title', '')[:40]
+        source = news.get('source', '西地新闻')
+        time_ago = get_time_ago(news.get('rewritten_at', ''))
         trending_html += f'''
             <li class="trending-item">
               <span class="trending-num">{i+1}</span>
               <div>
-                <h4>{news.get('title', '')[:30]}...</h4>
-                <p class="meta">{news.get('source', '西地新闻')} · {get_time_ago(news.get('rewritten_at', ''))}</p>
+                <a href="{news_url}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
+                  <h4>{title}...</h4>
+                </a>
+                <p class="meta">{source} · {time_ago}</p>
               </div>
             </li>
         '''
@@ -132,6 +143,18 @@ def generate_website(news_list: List[Dict]) -> str:
         source_stats[source] = source_stats.get(source, 0) + 1
 
     stats_html = ' · '.join([f"{k}: {v}条" for k, v in source_stats.items()])
+
+    # Hero section links
+    hero_url = news_list[0].get('url', '#') if news_list else '#'
+    hero2_url = news_list[1].get('url', '#') if len(news_list) > 1 else '#'
+    hero3_url = news_list[2].get('url', '#') if len(news_list) > 2 else '#'
+    hero_title = news_list[0]['title'] if news_list else '西地新闻 - 您的资讯管家'
+    hero2_title = news_list[1]['title'][:40] if len(news_list) > 1 else 'AI技术最新发展动态'
+    hero3_title = news_list[2]['title'][:40] if len(news_list) > 2 else '全球市场最新资讯'
+    hero_source = news_list[0].get('source', '西地新闻') if news_list else ''
+
+    # 来源标签
+    source_tags = ''.join([f'<span style="background: var(--color-bg-warm); padding: 6px 14px; border-radius: var(--radius-pill); font-size: 13px;">{k}</span>' for k in source_stats.keys()])
 
     html_content = f'''<!DOCTYPE html>
 <html lang="zh-CN">
@@ -386,6 +409,15 @@ def generate_website(news_list: List[Dict]) -> str:
       color: rgba(255,255,255,0.8);
     }}
 
+    .hero-main-overlay a {{
+      color: inherit;
+      text-decoration: none;
+    }}
+
+    .hero-main:hover .hero-main-overlay h1 {{
+      text-decoration: underline;
+    }}
+
     .hero-side {{
       display: flex;
       flex-direction: column;
@@ -484,12 +516,21 @@ def generate_website(news_list: List[Dict]) -> str:
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      cursor: pointer;
       transition: box-shadow 0.2s;
     }}
 
     .news-card:hover {{
       box-shadow: var(--shadow-card);
+    }}
+
+    .news-card-link {{
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }}
+
+    .news-card:hover h3 {{
+      color: var(--color-accent);
     }}
 
     .news-card-img {{
@@ -608,6 +649,10 @@ def generate_website(news_list: List[Dict]) -> str:
       font-weight: 600;
       line-height: 1.4;
       margin-bottom: 6px;
+    }}
+
+    .trending-item:hover h4 {{
+      color: var(--color-accent);
     }}
 
     .newsletter-box {{
@@ -823,29 +868,29 @@ def generate_website(news_list: List[Dict]) -> str:
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
-        <div class="hero-main">
+        <a href="{hero_url}" target="_blank" rel="noopener noreferrer" class="hero-main" style="display:block;color:inherit;text-decoration:none;">
           <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&q=80" alt="Featured">
           <div class="hero-main-overlay">
             <span class="category">热门</span>
-            <h1>{news_list[0]['title'] if news_list else '西地新闻 - 您的资讯管家'}</h1>
-            <p class="meta">来源: {news_list[0].get('source', '西地新闻')} · 点击阅读</p>
+            <h1>{hero_title}</h1>
+            <p class="meta">来源: {hero_source} · 点击阅读原文</p>
           </div>
-        </div>
+        </a>
         <div class="hero-side">
-          <div class="hero-side-item">
+          <a href="{hero2_url}" target="_blank" rel="noopener noreferrer" class="hero-side-item" style="display:block;color:inherit;text-decoration:none;">
             <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80" alt="Tech">
             <div class="hero-side-overlay">
               <span class="category">科技</span>
-              <h3>{news_list[1]['title'][:40] if len(news_list) > 1 else 'AI技术最新发展动态'}</h3>
+              <h3>{hero2_title}...</h3>
             </div>
-          </div>
-          <div class="hero-side-item">
+          </a>
+          <a href="{hero3_url}" target="_blank" rel="noopener noreferrer" class="hero-side-item" style="display:block;color:inherit;text-decoration:none;">
             <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Business">
             <div class="hero-side-overlay">
               <span class="category">财经</span>
-              <h3>{news_list[2]['title'][:40] if len(news_list) > 2 else '全球市场最新资讯'}</h3>
+              <h3>{hero3_title}...</h3>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>
@@ -890,7 +935,7 @@ def generate_website(news_list: List[Dict]) -> str:
         <div class="sidebar-section">
           <h2>📊 新闻来源</h2>
           <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            {''.join([f'<span style="background: var(--color-bg-warm); padding: 6px 14px; border-radius: var(--radius-pill); font-size: 13px;">{k}</span>' for k in source_stats.keys()])}
+            {source_tags}
           </div>
         </div>
       </aside>
