@@ -406,7 +406,7 @@ def generate_article_page(article: Dict, index: int, base_url: str = '') -> str:
             <span class="article-tag">海外华人</span>
           </div>
           <div class="share-section">
-            <a href="#" class="share-btn" onclick="navigator.share({title:'{title}',url:location.href});return false;">分享</a>
+            <a href="#" class="share-btn" onclick="navigator.share({{title:'{title}',url:location.href}});return false;">分享</a>
           </div>
         </div>
       </div>
