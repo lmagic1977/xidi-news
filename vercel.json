@@ -1,13 +1,19 @@
 {
   "version": 2,
   "buildCommand": null,
-  "outputDirectory": "website",
+  "outputDirectory": "website/output",
   "installCommand": null,
   "framework": null,
   "routes": [
     {
       "src": "/(.*)",
       "dest": "/$1"
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron",
+      "schedule": "0 8 * * *"
     }
   ]
 }
